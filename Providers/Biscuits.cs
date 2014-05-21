@@ -2,20 +2,21 @@
 
 namespace Providers
 {
-    public static class Sweets
+    public static class Biscuits
     {
-        private static SweetProviderCollection _providers;
+        private static BiscuitProviderCollection _providers;
 
         /// <summary>
-        /// Initializes the <see cref="Sweets"/> class.
+        /// Initializes the <see cref="Biscuits"/> class.
         /// </summary>
-        static Sweets()
+        static Biscuits()
         {
-            _providers = new SweetProviderCollection();
+            _providers = new BiscuitProviderCollection();
         }
 
-
-
+        /// <summary>
+        /// Gets or sets the default provider
+        /// </summary>
         public static String DefaultProvider { get; set; }
 
         /// <summary>
@@ -24,7 +25,7 @@ namespace Providers
         /// <value>
         /// The default sweet provider.
         /// </value>
-        public static SweetProvider Provider
+        public static BiscuitProvider Provider
         {
             get { return Providers[DefaultProvider]; }
         }
@@ -35,10 +36,9 @@ namespace Providers
         /// <value>
         /// The collection of providers.
         /// </value>
-        public static SweetProviderCollection Providers
+        public static BiscuitProviderCollection Providers
         {
             get { return _providers; }
         }
-
     }
 }
