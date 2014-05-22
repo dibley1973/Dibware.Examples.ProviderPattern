@@ -15,12 +15,12 @@ namespace Providers
         }
 
         /// <summary>
-        /// Gets or sets the default provider
+        /// Gets or sets the default provider name
         /// </summary>
         public static String DefaultProvider { get; set; }
 
         /// <summary>
-        /// Gets the default provider.
+        /// Gets the (default) provider.
         /// </summary>
         /// <value>
         /// The default sweet provider.
