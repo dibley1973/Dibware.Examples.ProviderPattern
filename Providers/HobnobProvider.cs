@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration.Provider;
 
 namespace Providers
 {

@@ -8,7 +8,7 @@ namespace Providers
         /// <summary>
         /// Gets the provider with the specified name.
         /// </summary>
-        /// <param name="name">The name.</param>
+        /// <param name="name">The name of the provider.</param>
         /// <returns></returns>
         public new BiscuitProvider this[String name]
         {
@@ -16,7 +16,7 @@ namespace Providers
         }
 
         /// <summary>
-        /// Adds a provider to the collection.
+        /// Adds a BiscuitProvider to the collection.
         /// </summary>
         /// <param name="provider">The provider to be added</param>
         /// <exception cref="System.ArgumentNullException">provider is null</exception>
@@ -24,13 +24,13 @@ namespace Providers
         public void Add(BiscuitProvider provider)
         {
             // Validate arguments
-            if(provider == null)
+            if (provider == null)
             {
                 throw new ArgumentNullException("provider");
             }
-            if(!provider.GetType().IsSubclassOf(typeof(BiscuitProvider)))
+            if (!provider.GetType().IsSubclassOf(typeof(BiscuitProvider)))
             {
-                throw new  NotSupportedException("provider must inherit from BiscuitProvider");
+                throw new NotSupportedException("provider must inherit from BiscuitProvider");
             }
 
             // Add the provider to the base class
