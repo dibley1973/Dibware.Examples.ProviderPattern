@@ -53,12 +53,16 @@
   <ItemGroup>
     <Compile Include="BiscuitProviderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BiscuitConfigurationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Providers\Providers.csproj">
       <Project>{07d8e72b-9adb-49f9-ad05-5deb2a946967}</Project>
       <Name>Providers</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ConfigTests.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

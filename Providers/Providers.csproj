@@ -41,9 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BourbonProvider.cs" />
-    <Compile Include="Configuration\BiscuitProviderCollectionConfiguration.cs" />
-    <Compile Include="Configuration\BiscuitProviderConfiguration.cs" />
-    <Compile Include="Configuration\BiscuitsConfiguration.cs" />
+    <Compile Include="Configuration\BiscuitProviderElementCollection.cs" />
+    <Compile Include="Configuration\BiscuitProviderElement.cs" />
+    <Compile Include="Configuration\BiscuitsSection.cs" />
     <Compile Include="HobnobProvider.cs" />
     <Compile Include="CustardCreamProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
