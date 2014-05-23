@@ -57,7 +57,6 @@ namespace Providers.Configuration
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Web.Configuration.MembershipSection" /> class.
         /// </summary>
-        [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
         public BiscuitsSection() { }
 
         #endregion
@@ -87,7 +86,6 @@ namespace Providers.Configuration
         /// <returns>The <see cref="T:System.Configuration.ConfigurationPropertyCollection" /> of properties for the element.</returns>
         protected override ConfigurationPropertyCollection Properties
         {
-            [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
             get
             {
                 return BiscuitsSection._properties;
@@ -102,12 +100,12 @@ namespace Providers.Configuration
         /// The collection of providers elements.
         /// </value>
         [ConfigurationProperty(ConfigurationKeys.Providers, IsRequired = true, IsDefaultCollection = true)]
-        [ConfigurationCollection(
-            typeof(BiscuitProviderElement),
-            CollectionType = ConfigurationElementCollectionType.AddRemoveClearMap,
-            AddItemName = "add",
-            ClearItemsName = "clear",
-            RemoveItemName = "remove")]
+        //[ConfigurationCollection(
+        //    typeof(BiscuitProviderElement),
+        //    CollectionType = ConfigurationElementCollectionType.AddRemoveClearMap,
+        //    AddItemName = "add",
+        //    ClearItemsName = "clear",
+        //    RemoveItemName = "remove")]
         public BiscuitProviderElementCollection Providers
         {
             get
