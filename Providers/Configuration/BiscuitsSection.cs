@@ -1,19 +1,16 @@
 ﻿using Providers.Resources;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Providers.Configuration
 {
     // Ref:
     //  http://www.cookcomputing.com/blog/archives/000589.html
     //
-    //
-    //
+    //  Schemas
+    //  http://stackoverflow.com/questions/1127315/how-do-i-make-an-extension-xsd-for-the-web-app-config-schema/7977168#7977168
+    //  http://stackoverflow.com/questions/5303476/how-to-fix-error-could-not-find-schema-information-for-the-attribute-element
     //
 
 
@@ -39,17 +36,17 @@ namespace Providers.Configuration
         /// </summary>
         static BiscuitsSection()
         {
-            BiscuitsSection._providers = 
+            BiscuitsSection._providers =
                 new ConfigurationProperty(
                     "providers",
                     typeof(BiscuitProviderElementCollection));
 
-            BiscuitsSection._defaultProvider = 
+            BiscuitsSection._defaultProvider =
                 new ConfigurationProperty(
-                    "defaultProvider", 
+                    "defaultProvider",
                     typeof(String));
 
-            BiscuitsSection._properties = 
+            BiscuitsSection._properties =
                 new ConfigurationPropertyCollection()
             {
                 BiscuitsSection._providers,
@@ -61,7 +58,7 @@ namespace Providers.Configuration
         /// Initializes a new instance of the <see cref="T:System.Web.Configuration.MembershipSection" /> class.
         /// </summary>
         [TargetedPatchingOptOut("Performance critical to inline this type of method across NGen image boundaries")]
-        public BiscuitsSection() {}
+        public BiscuitsSection() { }
 
         #endregion
 
@@ -76,7 +73,7 @@ namespace Providers.Configuration
         {
             get
             {
-                return (string)base[BiscuitsSection._defaultProvider];
+                return (String)base[BiscuitsSection._defaultProvider];
             }
             set
             {
@@ -97,29 +94,20 @@ namespace Providers.Configuration
             }
         }
 
-        #endregion
-
-
-
         /// <summary>
-        /// Gets the default provider.
+        /// Gets the <see cref="T:Providers.Configuration.BiscuitProviderElementCollection" /> 
+        /// of <see cref="T:Providers.Configuration.BiscuitProviderElement" /> objects.
         /// </summary>
         /// <value>
-        /// The default sweet provider.
+        /// The collection of providers elements.
         /// </value>
-        [ConfigurationProperty(ConfigurationKeys.Provider)]
-        public BiscuitProvider Provider
-        {
-            get { return (BiscuitProvider)base[ConfigurationKeys.Provider]; }
-        }
-
-        /// <summary>
-        /// Gets the provider collection.
-        /// </summary>
-        /// <value>
-        /// The collection of providers.
-        /// </value>
-        [ConfigurationProperty(ConfigurationKeys.Providers)]
+        [ConfigurationProperty(ConfigurationKeys.Providers, IsRequired = true, IsDefaultCollection = true)]
+        [ConfigurationCollection(
+            typeof(BiscuitProviderElement),
+            CollectionType = ConfigurationElementCollectionType.AddRemoveClearMap,
+            AddItemName = "add",
+            ClearItemsName = "clear",
+            RemoveItemName = "remove")]
         public BiscuitProviderElementCollection Providers
         {
             get
@@ -128,5 +116,18 @@ namespace Providers.Configuration
             }
         }
 
+        #endregion
+
+        ///// <summary>
+        ///// Gets the default provider.
+        ///// </summary>
+        ///// <value>
+        ///// The default sweet provider.
+        ///// </value>
+        //[ConfigurationProperty(ConfigurationKeys.Provider)]
+        //public BiscuitProvider Provider
+        //{
+        //    get { return (BiscuitProvider)base[ConfigurationKeys.Provider]; }
+        //}
     }
 }

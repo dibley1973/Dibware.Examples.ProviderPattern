@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace Providers.Configuration
 {
@@ -56,11 +57,11 @@ namespace Providers.Configuration
         /// </summary>
         /// <returns>The name of the provider.</returns>
         [ConfigurationProperty("name", IsRequired = true, IsKey = true)]
-        public string Name
+        public String Name
         {
             get
             {
-                return (string)base[this._propName];
+                return (String)base[this._propName];
             }
             set
             {
@@ -76,11 +77,11 @@ namespace Providers.Configuration
         /// configured by this <see cref="T:Providers.Configuration.BiscuitProvider.Element" /> instance.
         /// </returns>
         [ConfigurationProperty("type", IsRequired = true)]
-        public string Type
+        public String Type
         {
             get
             {
-                return (string)base[this._propType];
+                return (String)base[this._propType];
             }
             set
             {

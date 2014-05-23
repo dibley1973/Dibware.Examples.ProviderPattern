@@ -62,7 +62,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ConfigTests.config" />
+    <None Include="ConfigFiles\NoProvidersAdded.config" />
+    <None Include="ConfigFiles\OneProvidersAdded.config" />
+    <None Include="ConfigFiles\SetBiscuitSectionDefaultProviderAttribute.config" />
+    <None Include="ConfigFiles\ThreeProvidersAdded.config" />
+    <None Include="ConfigFiles\ThreeProvidersAddedThenCleared.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

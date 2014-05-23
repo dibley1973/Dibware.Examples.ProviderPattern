@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Providers.Configuration
 {
     /// <summary>
     /// Represents a configuration element containing a collection of child elements.
     /// </summary>
-    [ConfigurationCollection(typeof(BiscuitProviderElement), CollectionType = ConfigurationElementCollectionType.BasicMapAlternate)]
+    [ConfigurationCollection(
+        typeof(BiscuitProviderElement),
+        CollectionType = ConfigurationElementCollectionType.AddRemoveClearMap,
+        AddItemName = "add",
+        ClearItemsName = "clear",
+        RemoveItemName = "remove")]
     public class BiscuitProviderElementCollection : ConfigurationElementCollection
     {
         /// <summary>
@@ -21,19 +22,23 @@ namespace Providers.Configuration
         {
             get
             {
-                return ConfigurationElementCollectionType.BasicMap;
+                return ConfigurationElementCollectionType.AddRemoveClearMap;
             }
         }
 
         /// <summary>
         /// Adds a configuration element to the <see cref="BiscuitProviderElementCollection" />.
         /// </summary>
-        /// <param name="element">
+        /// <param name="provider">
         /// The <see cref="BiscuitProviderElement" /> to add.
         /// </param>
-        public void Add(BiscuitProviderElement element)
+        public void Add(BiscuitProviderElement provider)
         {
-            BaseAdd(element);
+            if (provider != null)
+            {
+                //provider.UpdatePropertyCollection(); ??
+                BaseAdd(provider);
+            }
         }
 
         /// <summary>
@@ -77,7 +82,7 @@ namespace Providers.Configuration
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            throw new NotImplementedException();
+            return ((BiscuitProviderElement)element).Name;
         }
 
         public void Remove(BiscuitProviderElement details)

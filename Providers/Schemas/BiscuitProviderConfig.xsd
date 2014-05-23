@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="configSections">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="section">
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required" />
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="biscuitSettings">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="providers">
+                <xs:complexType>
+                  <xs:choice minOccurs="0" maxOccurs="unbounded">
+                    <xs:element name="add" >
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="type" type="xs:string" use="required" />
+                        <xs:anyAttribute processContents="skip" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="clear" >
+                      <xs:complexType>
+                        <!--tag is empty-->
+                        <xs:anyAttribute namespace="http://schemas.microsoft.com/XML-Document-Transform" processContents="strict"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="defaultProvider" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
