@@ -67,6 +67,7 @@
     <None Include="ConfigFiles\SetBiscuitSectionDefaultProviderAttribute.config" />
     <None Include="ConfigFiles\ThreeProvidersAdded.config" />
     <None Include="ConfigFiles\ThreeProvidersAddedThenCleared.config" />
+    <None Include="app.config" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

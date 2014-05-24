@@ -1,12 +1,27 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Providers;
 using System;
+using System.Configuration;
 
 namespace ProvidersTests
 {
     [TestClass]
     public class BiscuitProviderTests
     {
+        [TestMethod]
+        public void Test_VerifyAppDomainHasConfigurationSettings()
+        {
+            // Arrange
+            String value;
+
+            // Act
+            value = ConfigurationManager.AppSettings["TestValue"];
+            
+            // Assert
+            Assert.IsFalse(String.IsNullOrEmpty(value), "No App.Config found.");
+        }
+
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
         public void Test_AddNullProvider_ResultsIn_ArgumentNullExceptionThrown()

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Configuration;
 
 namespace Providers.Configuration
@@ -8,6 +9,8 @@ namespace Providers.Configuration
     /// </summary>
     public sealed class BiscuitProviderElement : ConfigurationElement
     {
+        private NameValueCollection _propertyNameCollection;
+
         #region Declarations
 
         private readonly ConfigurationProperty _propName =
@@ -51,6 +54,37 @@ namespace Providers.Configuration
         #endregion
 
         #region Properties
+
+
+        /// <summary>Gets a collection of user-defined parameters for the provider.</summary>
+        /// <returns>A <see cref="T:System.Collections.Specialized.NameValueCollection" /> of parameters for the provider.</returns>
+        public NameValueCollection Parameters
+        {
+            get
+            {
+                if (this._propertyNameCollection == null)
+                {
+                    lock (this)
+                    {
+                        if (this._propertyNameCollection == null)
+                        {
+                            this._propertyNameCollection = new NameValueCollection(StringComparer.Ordinal);
+                            foreach (object _property in this._properties)
+                            {
+                                ConfigurationProperty configurationProperty = (ConfigurationProperty)_property;
+                                if (!(configurationProperty.Name != "name") || !(configurationProperty.Name != "type"))
+                                {
+                                    continue;
+                                }
+                                this._propertyNameCollection.Add(configurationProperty.Name, (string)base[configurationProperty]);
+                            }
+                        }
+                    }
+                }
+                return this._propertyNameCollection;
+            }
+        }
+
 
         /// <summary>
         /// Gets or sets the name of the provider configured by this class.

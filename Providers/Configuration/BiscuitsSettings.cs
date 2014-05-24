@@ -19,7 +19,7 @@ namespace Providers.Configuration
     /// configuring and managing buiscuit details. This class cannot be 
     /// inherited.
     /// </summary>
-    public sealed class BiscuitsSection : ConfigurationSection
+    public sealed class BiscuitsSettings : ConfigurationSection
     {
         #region Declarations
 
@@ -32,32 +32,32 @@ namespace Providers.Configuration
         #region Constructors
 
         /// <summary>
-        /// Initializes the <see cref="BiscuitsSection"/> class.
+        /// Initializes the <see cref="BiscuitsSettings"/> class.
         /// </summary>
-        static BiscuitsSection()
+        static BiscuitsSettings()
         {
-            BiscuitsSection._providers =
+            BiscuitsSettings._providers =
                 new ConfigurationProperty(
                     "providers",
                     typeof(BiscuitProviderElementCollection));
 
-            BiscuitsSection._defaultProvider =
+            BiscuitsSettings._defaultProvider =
                 new ConfigurationProperty(
                     "defaultProvider",
                     typeof(String));
 
-            BiscuitsSection._properties =
+            BiscuitsSettings._properties =
                 new ConfigurationPropertyCollection()
             {
-                BiscuitsSection._providers,
-                BiscuitsSection._defaultProvider
+                BiscuitsSettings._providers,
+                BiscuitsSettings._defaultProvider
             };
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:System.Web.Configuration.MembershipSection" /> class.
         /// </summary>
-        public BiscuitsSection() { }
+        public BiscuitsSettings() { }
 
         #endregion
 
@@ -72,11 +72,11 @@ namespace Providers.Configuration
         {
             get
             {
-                return (String)base[BiscuitsSection._defaultProvider];
+                return (String)base[BiscuitsSettings._defaultProvider];
             }
             set
             {
-                base[BiscuitsSection._defaultProvider] = value;
+                base[BiscuitsSettings._defaultProvider] = value;
             }
         }
 
@@ -88,7 +88,7 @@ namespace Providers.Configuration
         {
             get
             {
-                return BiscuitsSection._properties;
+                return BiscuitsSettings._properties;
             }
         }
 
@@ -110,7 +110,7 @@ namespace Providers.Configuration
         {
             get
             {
-                return (BiscuitProviderElementCollection)base[BiscuitsSection._providers];
+                return (BiscuitProviderElementCollection)base[BiscuitsSettings._providers];
             }
         }
 

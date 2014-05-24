@@ -53,8 +53,8 @@ namespace ProvidersTests
                 = ConfigurationManager.OpenMappedExeConfiguration(
                     _fileMap, ConfigurationUserLevel.None);
 
-            BiscuitsSection section /* Get the configuration section */
-                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSection;
+            BiscuitsSettings section /* Get the configuration section */
+                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSettings;
 
             // Assert
             Assert.AreEqual("testProvider", section.DefaultProvider);
@@ -74,8 +74,8 @@ namespace ProvidersTests
                 = ConfigurationManager.OpenMappedExeConfiguration(
                     _fileMap, ConfigurationUserLevel.None);
 
-            BiscuitsSection section /* Get the configuration section */
-                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSection;
+            BiscuitsSettings section /* Get the configuration section */
+                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSettings;
 
             // Assert
             Assert.AreEqual(expectedProviderCount, section.Providers.Count);
@@ -95,8 +95,8 @@ namespace ProvidersTests
                 = ConfigurationManager.OpenMappedExeConfiguration(
                     _fileMap, ConfigurationUserLevel.None);
 
-            BiscuitsSection section /* Get the configuration section */
-                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSection;
+            BiscuitsSettings section /* Get the configuration section */
+                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSettings;
 
             // Assert
             Assert.AreEqual(expectedProviderCount, section.Providers.Count);
@@ -116,8 +116,8 @@ namespace ProvidersTests
                 = ConfigurationManager.OpenMappedExeConfiguration(
                     _fileMap, ConfigurationUserLevel.None);
 
-            BiscuitsSection section /* Get the configuration section */
-                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSection;
+            BiscuitsSettings section /* Get the configuration section */
+                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSettings;
 
             // Assert
             Assert.AreEqual(expectedProviderCount, section.Providers.Count);
@@ -137,8 +137,8 @@ namespace ProvidersTests
                 = ConfigurationManager.OpenMappedExeConfiguration(
                     _fileMap, ConfigurationUserLevel.None);
 
-            BiscuitsSection section /* Get the configuration section */
-                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSection;
+            BiscuitsSettings section /* Get the configuration section */
+                = config.GetSection(BiscuitSettingsSectionName) as BiscuitsSettings;
 
             // Assert
             Assert.AreEqual(expectedProviderCount, section.Providers.Count);

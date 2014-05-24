@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,21 +42,44 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BourbonProvider.cs" />
+    <Compile Include="Configuration\Base\ProviderSettings.cs" />
+    <Compile Include="Configuration\Base\ProviderSettingsCollection.cs" />
     <Compile Include="Configuration\BiscuitProviderElementCollection.cs" />
     <Compile Include="Configuration\BiscuitProviderElement.cs" />
-    <Compile Include="Configuration\BiscuitsSection.cs" />
+    <Compile Include="Configuration\BiscuitsSettings.cs" />
+    <Compile Include="Helpers\ProvidersHelper.cs" />
     <Compile Include="HobnobProvider.cs" />
     <Compile Include="CustardCreamProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BiscuitProvider.cs" />
     <Compile Include="BiscuitProviderCollection.cs" />
     <Compile Include="Biscuits.cs" />
+    <Compile Include="Resources\ConfigSectionNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConfigSectionNames.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ConfigurationKeys_.cs" />
+    <Compile Include="Resources\ExceptionMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionMessages.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Schemas\BiscuitProviderConfig.xsd">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ConfigSectionNames.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ConfigSectionNames.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ExceptionMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
