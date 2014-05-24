@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Providers;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -23,6 +25,9 @@ namespace ProviderWebApplication
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            Debug.WriteLine(Biscuits.DefaultProvider);
+            
         }
     }
 }
